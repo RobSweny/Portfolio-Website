@@ -1,0 +1,70 @@
+@font-face {
+    font-family: space;
+    src: url('fonts/spacegrotesk/SpaceGrotesk[wght].ttf')
+}
+
+body {
+    overflow: hidden;
+
+    /* Midnight Blue 
+    background-color: rgb(36, 77, 78); */
+
+    /* Evening Blue */
+    background-color: rgb(96, 157, 159);
+
+    /* Morning Blue */
+    background-color: rgb(167, 214, 216);
+}
+
+#weather {
+    font-family: space;
+    position: absolute;
+    height: 100px;
+    width: 150px;
+    border-radius: 35px;
+    top: 0;
+    left: 0;
+    margin: 20px;
+    text-align: center;
+    background-color: white;
+    line-height: 8px;
+    box-shadow: 6px 12px yellow;
+}
+
+b.sun {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 200px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff347;
+    border-radius: 50%;
+}
+
+/* Glow to sun or moon */
+.element {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 200px;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0px 0px 9px 4px #e9eeca;
+    animation: glowShadow 5s linear infinite alternate;
+    border-radius: 50%;
+}
+
+
+@keyframes glowShadow{
+    to {
+        box-shadow: 0px 0px 35px 15px #f7f5dc;
+    }
+}
+
+@keyframes glowImage{
+    to {
+        -webkit-filter: brightness(1);
+        filter: brightness(1);
+    }
+} 
