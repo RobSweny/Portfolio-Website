@@ -16,6 +16,35 @@ body {
     background-color: rgb(167, 214, 216);
 }
 
+nav {
+    width:80%;
+    margin:0 auto;
+    background:blue;
+}
+
+div {
+    float:left;
+}
+
+ul {
+    margin:0;
+    padding:0;
+    float:right;
+}
+
+li { 
+    list-style:none;
+    display:inline;
+}
+
+a {
+    color:black;
+    font-family: space;
+    text-decoration:none;
+    float:left;
+    padding:20px;
+}
+
 #weather {
     font-family: space;
     position: absolute;
@@ -41,6 +70,35 @@ b.sun {
     background-color: #fff347;
     border-radius: 50%;
 }
+
+.firstHill {
+    position:fixed;
+    height: 500px;
+    width: 950px;
+    margin-left: 120px;
+    left: 0;    
+    bottom: 0;
+}
+
+.secondHill {
+    position:fixed;
+    height: 500px;
+    width: 950px;
+    margin-left: 175px;
+    left: 0;    
+    bottom: 0;
+}
+
+.thirdHill {
+    position:fixed;
+    height: 700px;
+    width: 1150px;
+    margin-left: 50px;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+}
+
 
 /* Glow to sun or moon */
 .element {

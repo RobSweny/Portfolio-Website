@@ -83,6 +83,11 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
     } else if (formattedTime >= 16) {
         /* Evening Blue */
         document.body.style.backgroundColor = ('rgb(96, 157, 159)');
+    } else if (formattedTime >= 10) {
+        /* Morning Blue */
+        document.body.style.backgroundColor = ('rgb(194, 222, 226)');
+    
+        
     } else if (formattedTime >= 7) {
         /* Change moon to sun */
         sun.style.backgroundColor = "fff347";
