@@ -18,8 +18,8 @@ function ShowMeOnHover() {
 } 
 
 function onLoadWeather() {
-    var userlocation = sessionStorage.getItem('userLocation'); // get data
-    if(userlocation.length == 0){
+    // if storagesession is null, retrieve from IP
+    if(sessionStorage.getItem('userLocation') === null){
         retrieveUserCountryInformation(); 
 
         // get current time and format to 24 hours
@@ -63,7 +63,9 @@ function weatherBalloon(cityID) {
     .catch(function() {
         console.log('Error retrieving information from openweathermap');
         console.log('Reverting to IP');
-        Swal.fire("Unfortunately, we can't find that location, reverting to default")
+        if (sessionStorage.getItem('userLocation') !== null){
+            Swal.fire("Unfortunately, we can't find that location, reverting to default")
+        }
         retrieveUserCountryInformation(); 
     });
 }
@@ -76,29 +78,32 @@ function retrievedata(data) {
         document.getElementById('description').innerHTML = data.weather[0].description;
         document.getElementById('temp').innerHTML = celcius + '&deg;';
         document.getElementById('location').innerHTML = data.name;
-        var loc = data.coord.lat + "," + data.coord.lon;
-        var targetDate = new Date();
-        var timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60;
-        var apikey = 'AIzaSyC3tkoVRMTN9OAsbfL_s4dWkryvLGbJ6YA';
-        var apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp + '&key=' + apikey;
 
-        var xhr = new XMLHttpRequest() // create new XMLHttpRequest2 object
-        xhr.open('GET', apicall) // open GET request
-        xhr.onload = function(){
-            if (xhr.status === 200){ 
-                var output = JSON.parse(xhr.responseText)
-                console.log(output.status)
-                if (output.status == 'OK') { 
-                    var offsets = output.dstOffset * 1000 + output.rawOffset * 1000;
-                    var localdate = new Date(timestamp * 1000 + offsets);
-                    changeWebsiteBasedOnTime(getTwentyFourHourTime(localdate.toLocaleString().slice(9,14)));
+        if (sessionStorage.getItem('userLocation') !== null){
+            var loc = data.coord.lat + "," + data.coord.lon;
+            var targetDate = new Date();
+            var timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60;
+            var apikey = 'AIzaSyC3tkoVRMTN9OAsbfL_s4dWkryvLGbJ6YA';
+            var apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp + '&key=' + apikey;
+    
+            var xhr = new XMLHttpRequest() // create new XMLHttpRequest2 object
+            xhr.open('GET', apicall) // open GET request
+            xhr.onload = function(){
+                if (xhr.status === 200){ 
+                    var output = JSON.parse(xhr.responseText)
+                    console.log(output.status)
+                    if (output.status == 'OK') { 
+                        var offsets = output.dstOffset * 1000 + output.rawOffset * 1000;
+                        var localdate = new Date(timestamp * 1000 + offsets);
+                        changeWebsiteBasedOnTime(getTwentyFourHourTime(localdate.toLocaleString().slice(9,20)));
+                    }
+                }
+                else{
+                    console.log('Request failed.  Returned status of ' + xhr.status)
                 }
             }
-            else{
-                console.log('Request failed.  Returned status of ' + xhr.status)
-            }
+            xhr.send() // send request
         }
-        xhr.send() // send request
     } catch (err){
         console.log(err);
         console.log("Error retrieve information from data object");
@@ -110,7 +115,6 @@ function retrievedata(data) {
 function retrieveUserCountryInformation(){
     $.get("http://ipinfo.io", function(response) {
         weatherBalloon(response.city + ',' + response.country);
-        sessionStorage.setItem('userLocation', response.city); 
     }, "jsonp");
 }
 
@@ -135,7 +139,6 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
     var heightSlice = screen.height/12;
     
     var verticialPositions = [heightSlice * 6, heightSlice * 5, heightSlice * 4, heightSlice * 3, heightSlice * 2, heightSlice * 1, 0, heightSlice * 1, heightSlice * 2, heightSlice * 3, heightSlice * 4, heightSlice * 5, heightSlice * 6, heightSlice * 5, heightSlice * 4, heightSlice * 3, heightSlice * 2, heightSlice * 1, 0, 0, heightSlice * 1, heightSlice * 2, heightSlice * 3, heightSlice * 4, heightSlice * 5]; 
-    
     var horizontalPositions = [widthSlice * 7, widthSlice * 8, widthSlice * 9, widthSlice * 10, widthSlice * 11, widthSlice * 12, 0, widthSlice * 1, widthSlice * 2, widthSlice * 3, widthSlice * 4, widthSlice * 5, widthSlice * 6, widthSlice * 7, widthSlice * 8, widthSlice * 9, widthSlice * 10, widthSlice * 11, widthSlice * 12, 0, widthSlice * 1, widthSlice * 2, widthSlice * 3, widthSlice * 4, widthSlice * 5, widthSlice * 6]; 
 
     if (formattedTime == 0){
