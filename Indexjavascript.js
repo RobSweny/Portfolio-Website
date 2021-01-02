@@ -2,47 +2,115 @@
 var country = "IE";
 var city = "Dublin";
 
-function onLoadWeather(){
-    retrieveUserCountryInformation(); 
 
-    // get current time and format to 24 hours
-    var formattedTime = getTwentyFourHourTime(new Date().toLocaleTimeString());
+function ShowMeOnHover() { 
+    var weatherSizeIncrease = document.getElementById("weather");
+    var arrow = document.getElementById("arrow_down");
+    var location_group = document.getElementById("location_group");
     
-    var time = new Date().toLocaleTimeString();   
-    
-    // hour of the day
-    var hour = time.slice(0, 1);
-    
-    // timeOfDay will show AM/PM
-    // var timeOfDay = time.slice(time.length-2, time.length)
-    changeWebsiteBasedOnTime(formattedTime, hour);
+    weatherSizeIncrease.style.width="200px";
+    weatherSizeIncrease.style.height="220px";
+
+    location_group.style.display="block";
+    arrow.style.rotate="180deg";
+    arrow.style.marginLeft="170px";
+    arrow.style.marginTop="190px";
+} 
+
+function onLoadWeather() {
+    var userlocation = sessionStorage.getItem('userLocation'); // get data
+    if(userlocation.length == 0){
+        retrieveUserCountryInformation(); 
+
+        // get current time and format to 24 hours
+        var formattedTime = getTwentyFourHourTime(new Date().toLocaleTimeString());
+        
+        var time = new Date().toLocaleTimeString();
+        
+        // hour of the day
+        var hour = time.slice(0, 1);
+        
+        // timeOfDay will show AM/PM
+        // var timeOfDay = time.slice(time.length-2, time.length)
+        changeWebsiteBasedOnTime(formattedTime, hour);
+    } else {
+        weatherBalloon(sessionStorage.getItem('userLocation'));
+
+        // get current time and format to 24 hours
+        var formattedTime = getTwentyFourHourTime(new Date().toLocaleTimeString());
+
+        var time = new Date().toLocaleTimeString();   
+        
+        // hour of the day
+        var hour = time.slice(0, 1);
+        changeWebsiteBasedOnTime(formattedTime, hour);
+    }
+
 }
 
-function weatherBalloon( cityID ) {
+function weatherBalloon(cityID) {
     var key = 'd177090656c6d0c21d1b6ac056ca2d12';
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityID+ '&appid=' + key)  
-    .then(function(resp) { return resp.json() }) // Convert data to json
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cityID+ '&appid=' + key)
+    // Convert data to json 
+    .then(function(resp) {
+        if (!resp.ok) {
+            throw Error(response.statusText);
+        }
+        return resp.json()}) 
     .then(function(data) {
-        drawWeather(data);
+        retrievedata(data);
     })
     .catch(function() {
         console.log('Error retrieving information from openweathermap');
+        console.log('Reverting to IP');
+        Swal.fire("Unfortunately, we can't find that location, reverting to default")
+        retrieveUserCountryInformation(); 
     });
-  }
+}
 
-function drawWeather(data) {
-    var celcius = Math.round(parseFloat(data.main.temp)-273.15);
-    var fahrenheit = Math.round(((parseFloat(data.main.temp)-273.15)*1.8)+32); 
+function retrievedata(data) {
+    try {
+        var celcius = Math.round(parseFloat(data.main.temp)-273.15);
+        var fahrenheit = Math.round(((parseFloat(data.main.temp)-273.15)*1.8)+32); 
 
-    document.getElementById('description').innerHTML = data.weather[0].description;
-    document.getElementById('temp').innerHTML = celcius + '&deg;';
-    document.getElementById('location').innerHTML = data.name;
+        document.getElementById('description').innerHTML = data.weather[0].description;
+        document.getElementById('temp').innerHTML = celcius + '&deg;';
+        document.getElementById('location').innerHTML = data.name;
+        var loc = data.coord.lat + "," + data.coord.lon;
+        var targetDate = new Date();
+        var timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60;
+        var apikey = 'AIzaSyC3tkoVRMTN9OAsbfL_s4dWkryvLGbJ6YA';
+        var apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp + '&key=' + apikey;
+
+        var xhr = new XMLHttpRequest() // create new XMLHttpRequest2 object
+        xhr.open('GET', apicall) // open GET request
+        xhr.onload = function(){
+            if (xhr.status === 200){ 
+                var output = JSON.parse(xhr.responseText)
+                console.log(output.status)
+                if (output.status == 'OK') { 
+                    var offsets = output.dstOffset * 1000 + output.rawOffset * 1000;
+                    var localdate = new Date(timestamp * 1000 + offsets);
+                    changeWebsiteBasedOnTime(getTwentyFourHourTime(localdate.toLocaleString().slice(9,14)));
+                }
+            }
+            else{
+                console.log('Request failed.  Returned status of ' + xhr.status)
+            }
+        }
+        xhr.send() // send request
+    } catch (err){
+        console.log(err);
+        console.log("Error retrieve information from data object");
+    }
+
 }
 
 // Based on the users IP address, get their city and country
 function retrieveUserCountryInformation(){
     $.get("http://ipinfo.io", function(response) {
         weatherBalloon(response.city + ',' + response.country);
+        sessionStorage.setItem('userLocation', response.city); 
     }, "jsonp");
 }
 
@@ -59,6 +127,7 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
     var clearfix_a_index = document.getElementById("clearfix_a_index");
     var clearfix_a_blog = document.getElementById("clearfix_a_blog");
     var clearfix_a_contact = document.getElementById("clearfix_a_contact");
+    var clearfix_a_portfolio = document.getElementById("clearfix_a_portfolio");
     
     
 
@@ -90,6 +159,7 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
         clearfix_a_index.style.color = "#FEFCD7";
         clearfix_a_blog.style.color = "#FEFCD7";
         clearfix_a_contact.style.color = "#FEFCD7";
+        clearfix_a_portfolio.style.color = "#FEFCD7";
     } else if (formattedTime >= 16) {
         /* Evening Blue */
         document.body.style.backgroundColor = ('rgb(96, 157, 159)');
@@ -112,6 +182,7 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
         clearfix_a_index.style.color = "#black";
         clearfix_a_blog.style.color = "#black";
         clearfix_a_contact.style.color = "#black";
+        clearfix_a_portfolio.style.color = "#black";
     }
 
     function riseAndFall(){
@@ -119,5 +190,16 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
         sun.style.left = horizontalPositions[formattedTime-postitionChange] + "px";
         glow.style.bottom = verticialPositions[formattedTime-postitionChange] + "px";
         glow.style.left = horizontalPositions[formattedTime-postitionChange] + "px";
+    }
+}
+
+function userRequestLocation(){
+    try {
+        var userLocation = document.getElementById("location_input").value
+        weatherBalloon(userLocation);
+        // save user location data
+        sessionStorage.setItem('userLocation', userLocation); 
+    } catch (err) {
+        Swal.fire("Unfortunately, we can't find that location")
     }
 }

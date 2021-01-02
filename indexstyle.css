@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: montserrat-light;
+    src: url('fonts/Montserrat/Montserrat-Light.ttf')
+}
+
+@font-face {
     font-family: work-sans;
     src: url('fonts/Work_Sans/WorkSans-VariableFont_wght.ttf')
 }
@@ -57,7 +62,7 @@ a {
 
 #weather {
     font-family: work-sans;
-    position: absolute;
+    position: fixed;
     height: 100px;
     width: 150px;
     border-radius: 35px;
@@ -69,6 +74,17 @@ a {
     background-color: white;
     line-height: 8px;
     box-shadow: 6px 12px yellow;
+}
+
+
+#location_input {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.swal2-title {
+    font-family: montserrat-light;
+    font-size: 12px;
 }
 
 b.sun {
@@ -144,3 +160,21 @@ b.sun {
         filter: brightness(1);
     }
 } 
+
+.arrow_down {
+    position: absolute;
+    border: solid rgb(70, 70, 70);
+    border-width: 0 3px 3px 0;
+    margin-left: 120px;
+    margin-top: 70px;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+}
+
+#location_group {
+    display: none;
+}
