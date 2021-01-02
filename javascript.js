@@ -56,6 +56,11 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
     var sun = document.getElementById("sun");
     var glow = document.getElementById("element");
     var weatherIcon = document.getElementById("weather");
+    var clearfix_a_index = document.getElementById("clearfix_a_index");
+    var clearfix_a_blog = document.getElementById("clearfix_a_blog");
+    var clearfix_a_contact = document.getElementById("clearfix_a_contact");
+    
+    
 
     var widthSlice = screen.width/12-10;
     var heightSlice = screen.height/12;
@@ -80,6 +85,11 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
         /* Midnight Blue */
         document.body.style.backgroundColor = ('rgb(36, 77, 78)');
         weatherIcon.style.boxShadow = '6px 12px rgb(65, 113, 115)';
+
+        /* Change nav bar text to light blue */
+        clearfix_a_index.style.color = "#FEFCD7";
+        clearfix_a_blog.style.color = "#FEFCD7";
+        clearfix_a_contact.style.color = "#FEFCD7";
     } else if (formattedTime >= 16) {
         /* Evening Blue */
         document.body.style.backgroundColor = ('rgb(96, 157, 159)');
@@ -97,6 +107,11 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
     } else if (formattedTime >= 5) {
         /* Morning Blue */
         document.body.style.backgroundColor = ('rgb(96, 157, 159)');
+
+        /* Change nav bar text back to black */
+        clearfix_a_index.style.color = "#black";
+        clearfix_a_blog.style.color = "#black";
+        clearfix_a_contact.style.color = "#black";
     }
 
     function riseAndFall(){
