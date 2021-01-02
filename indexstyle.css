@@ -3,6 +3,16 @@
     src: url('fonts/spacegrotesk/SpaceGrotesk[wght].ttf')
 }
 
+@font-face {
+    font-family: montserrat;
+    src: url('fonts/Montserrat/Montserrat-SemiBold.ttf')
+}
+
+@font-face {
+    font-family: work-sans;
+    src: url('fonts/Work_Sans/WorkSans-VariableFont_wght.ttf')
+}
+
 body {
     overflow: hidden;
 
@@ -38,15 +48,15 @@ li {
 }
 
 a {
-    color:black;
-    font-family: space;
+    color: #090909;
+    font-family: montserrat;
     text-decoration:none;
     float:left;
     padding:20px;
 }
 
 #weather {
-    font-family: space;
+    font-family: work-sans;
     position: absolute;
     height: 100px;
     width: 150px;
@@ -55,6 +65,7 @@ a {
     left: 0;
     margin: 20px;
     text-align: center;
+    color: #090909;
     background-color: white;
     line-height: 8px;
     box-shadow: 6px 12px yellow;
@@ -74,8 +85,8 @@ b.sun {
 .firstHill {
     display: block;
     position: fixed;
-    height: 500px;
-    width: 950px;
+    height: 600px;
+    width: 1150px;
     z-index: -1;
     margin: 0 auto;
     bottom: 0;
@@ -86,8 +97,8 @@ b.sun {
 .secondHill {
     display: block;
     position: fixed;
-    height: 550px;
-    width: 1050px;
+    height: 650px;
+    width: 1150px;
     left: 50%;
     margin: 0 auto;
     transform: translate(-50%, 0);
@@ -97,8 +108,8 @@ b.sun {
 .thirdHill {
     display: block;
     position: fixed;
-    height: 700px;
-    width: 1200px;
+    height: 800px;
+    width: 1400px;
     margin: 0 auto;
     z-index: -1;
     left: 55%;

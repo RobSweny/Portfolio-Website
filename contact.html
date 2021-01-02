@@ -10,8 +10,8 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="indexstyle.css">
-        <script src="Indexjavascript.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <script src="javascript.js"></script>
 
 
 
@@ -23,7 +23,7 @@
         <!-- AJAX to get user location - function retrieveUserCountryInformation() -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
-    <body onload="onLoadWeather()">
+    <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -31,27 +31,12 @@
         <!-- NavBar -->
         <nav class="clearfix">
             <ul>
+              <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About</a></li>
               <li><a href="portfolio.html">Portfolio</a></li>
               <li><a href="blog.html">Blog</a></li>
-              <li><a href="contact.html">Contact</a></li>
              </ul>
           </nav>
-
-        <!-- Weather/temperature card -->
-        <div id="weather">
-            <p id="description"></p>
-            <p id="location"></p>
-            <h1 id="temp"></h1>
-        </div>
-
-        <!-- Tag for sun/moon-->
-        <div id="element" class="element"></div>
-        <b id="sun" class="sun"></b>
-
-        <img class="firstHill" src="images/FirstHillSpring.png">
-        <img class="secondHill" src="images/SecondHillSpring.png">
-        <img class="thirdHill" src="images/ThirdHillSpring.png">
 
 
 
