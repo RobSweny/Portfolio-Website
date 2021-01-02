@@ -35,15 +35,6 @@ function onLoadWeather() {
         changeWebsiteBasedOnTime(formattedTime, hour);
     } else {
         weatherBalloon(sessionStorage.getItem('userLocation'));
-
-        // get current time and format to 24 hours
-        var formattedTime = getTwentyFourHourTime(new Date().toLocaleTimeString());
-
-        var time = new Date().toLocaleTimeString();   
-        
-        // hour of the day
-        var hour = time.slice(0, 1);
-        changeWebsiteBasedOnTime(formattedTime, hour);
     }
 
 }
@@ -97,8 +88,7 @@ function retrievedata(data) {
                         var localdate = new Date(timestamp * 1000 + offsets);
                         changeWebsiteBasedOnTime(getTwentyFourHourTime(localdate.toLocaleString().slice(9,20)));
                     }
-                }
-                else{
+                } else {
                     console.log('Request failed.  Returned status of ' + xhr.status)
                 }
             }
@@ -133,8 +123,6 @@ function changeWebsiteBasedOnTime(formattedTime, hour) {
     var clearfix_a_contact = document.getElementById("clearfix_a_contact");
     var clearfix_a_portfolio = document.getElementById("clearfix_a_portfolio");
     
-    
-
     var widthSlice = screen.width/12-10;
     var heightSlice = screen.height/12;
     
