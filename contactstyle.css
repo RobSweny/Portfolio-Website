@@ -1,0 +1,208 @@
+@font-face {
+    font-family: space;
+    src: url('fonts/spacegrotesk/SpaceGrotesk[wght].ttf')
+}
+
+@font-face {
+    font-family: montserrat;
+    src: url('fonts/Montserrat/Montserrat-SemiBold.ttf')
+}
+
+@font-face {
+    font-family: montserrat-light;
+    src: url('fonts/Montserrat/Montserrat-Light.ttf')
+}
+
+@font-face {
+    font-family: work-sans;
+    src: url('fonts/Work_Sans/WorkSans-VariableFont_wght.ttf')
+}
+
+/* Nav bar */
+nav {
+    width:80%;
+    margin:0 auto;
+    background:blue;
+}
+
+div {
+    float:left;
+}
+
+ul {
+    margin:0;
+    padding:0;
+    float:right;
+}
+
+li { 
+    list-style:none;
+    display:inline;
+}
+
+a {
+    color: #090909;
+    font-family: montserrat;
+    text-decoration:none;
+    float:left;
+    padding:20px;
+}
+
+body {
+    background-color: rgb(77, 133, 182);
+}
+
+.googleform_top_bar {
+    position: absolute;
+    width: 500px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #404040;
+}
+
+
+.action_bar {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1px;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.minimize {
+    display: block;
+    margin: -1px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0;
+    border: 0;
+    border-width: 0px;
+}
+
+button:focus {
+    outline: none;
+}
+
+.minimize_img {
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.exit_full {
+    display: block;
+    margin: -1px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0;
+    border: 0;
+    border-width: 0px;
+}
+
+.exit_img {
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+    background-size: contain;
+}
+
+.close {
+    display: block;
+    margin: -1px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0;
+    border: 0;
+    border-width: 0px;
+}
+
+.close_img {
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+    background-size: contain;
+}
+
+
+.new_message_text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 13px;
+    text-align: left;
+    margin: 1px;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+.form-group {
+    width:auto;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input_to {
+    width: 460px;
+    outline: 0px;
+    border-width: 0 0 1px;
+    border-color: #cecece;
+    padding-bottom: 5px;
+}
+
+.input_subject {
+    width: 460px;
+    padding-top: 10px;
+    outline: 0px;
+    border-width: 0 0 1px;
+    border-color: #cecece;
+    padding-bottom: 5px;
+    offset: -10px;
+}
+
+.googleform {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    margin-top: 15px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 0px 0px 0px 0px;
+    background-color: white;
+}
+
+.googleform_bottom_bar {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
+.send_button {
+    height: 30px;
+    width: 75px;
+    border-radius: 3px;
+    background-color: #1a73e8;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+}
+
+.send_button:hover {
+    box-shadow: 0 0 4px #3f87e6;
+}

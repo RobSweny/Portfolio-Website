@@ -10,10 +10,14 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-        <script src="javascript.js"></script>
+        <link rel="stylesheet" href="contactstyle.css">
 
+        <!-- JQuery -->
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
+        <!-- Javascript -->
+        <script src="Contactjavascript.js"></script>
 
         <!-- Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -37,7 +41,32 @@
               <li><a href="blog.html">Blog</a></li>
              </ul>
           </nav>
+          
+          <div>
+            <div class="googleform_top_bar">
+                <p class="new_message_text">New Message</p>
+                <div class="action_bar">
+                    <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
+                    <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
+                    <button id="close" class="close"><img class="close_img" src="images/gmail_icons/close.png"/></button>
+                </div>
+            </div>
+            <div class="googleform">
+                <form>
+                    <div class="form-group">
+                        <input class="input_to" placeholder="To"></input>
+                        <input class="input_subject" placeholder="Subject"></input>
+                        <div class="googleform_bottom_bar">
+                            <button class="send_button">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
 
+
+
+          </div>
 
 
     </body>
