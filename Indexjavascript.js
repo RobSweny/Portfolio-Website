@@ -56,15 +56,33 @@ function weatherBalloon(cityID) {
         console.log('Reverting to IP');
         if (sessionStorage.getItem('userLocation') !== null){
             Swal.fire("Unfortunately, we can't find that location, reverting to default")
+            weatherBalloon(city + "," + country)
         }
         retrieveUserCountryInformation(); 
     });
 }
 
+
+
 function retrievedata(data) {
     try {
         var celcius = Math.round(parseFloat(data.main.temp)-273.15);
         var fahrenheit = Math.round(((parseFloat(data.main.temp)-273.15)*1.8)+32); 
+        var weatherDescription = data.weather[0].description;
+        if (weatherDescription === 'snow' || weatherDescription === 'light snow'){ 
+            var snow = document.getElementById("snow");
+            snow.style.display = "block";
+            letItSnow(15);
+        } else if (weatherDescription === 'heavy snow'){ 
+            alert('heavy');
+            var snow = document.getElementById("snow");
+            snow.style.display = "block";
+            letItSnow(100);
+        }
+
+        if(weatherDescription = "rain"){
+            makeItRain();
+        }
 
         document.getElementById('description').innerHTML = data.weather[0].description;
         document.getElementById('temp').innerHTML = celcius + '&deg;';
@@ -86,7 +104,7 @@ function retrievedata(data) {
                     if (output.status == 'OK') { 
                         var offsets = output.dstOffset * 1000 + output.rawOffset * 1000;
                         var localdate = new Date(timestamp * 1000 + offsets);
-                        changeWebsiteBasedOnTime(getTwentyFourHourTime(localdate.toLocaleString().slice(9,20)));
+                        changeWebsiteBasedOnTime(getTwentyFourHourTime(localdate.toLocaleString().slice(9,22)));
                     }
                 } else {
                     console.log('Request failed.  Returned status of ' + xhr.status)
@@ -194,3 +212,73 @@ function userRequestLocation(){
         Swal.fire("Unfortunately, we can't find that location")
     }
 }
+
+function letItSnow(snowQuantity){
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+    script.onload = function(){
+        particlesJS("snow", {
+            "particles": {
+                "number": {
+                    "value": snowQuantity,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "opacity": {
+                    "value": 0.7,
+                    "random": false,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "line_linked": {
+                    "enable": false
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 5,
+                    "direction": "bottom",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": true,
+                        "rotateX": 300,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": {
+                        "enable": false
+                    },
+                    "onclick": {
+                        "enable": false
+                    },
+                    "resize": false
+                }
+            },
+            "retina_detect": true
+        });
+    }
+    document.head.append(script);
+}
+
+function makeItRain(){
+    
+}
+    

@@ -94,8 +94,20 @@ b.sun {
     height: 200px;
     bottom: 0;
     left: 0;
+    z-index: -25;
     background-color: #fff347;
     border-radius: 50%;
+}
+
+#snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
 }
 
 .firstHill {
@@ -142,6 +154,7 @@ b.sun {
     height: 200px;
     bottom: 0;
     left: 0;
+    z-index: -25;
     box-shadow: 0px 0px 9px 4px #e9eeca;
     animation: glowShadow 5s linear infinite alternate;
     border-radius: 50%;
