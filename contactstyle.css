@@ -49,7 +49,15 @@ a {
 }
 
 body {
-    background-color: rgb(77, 133, 182);
+    background-color: #55688a;
+}
+
+.google_email {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 200px;
+    display: none;
 }
 
 .googleform_top_bar {
@@ -205,4 +213,38 @@ button:focus {
 
 .send_button:hover {
     box-shadow: 0 0 4px #3f87e6;
+    background-color: #247aeb;
+}
+
+.compose {
+    position: absolute;
+    height: 65px;
+    width: 180px;
+    bottom: 0;
+    left: 0;
+    margin: 45px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 0 4px #1a1a1a;
+}
+
+.compose:hover {
+    box-shadow: 0 0 7px #1a1a1a;
+}
+
+.compose_label {
+    position: absolute;
+    right: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 19px;
+    color: #2b2a2a;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.compose_img {
+    margin-top: 2px;
+    margin-left: 4px;
 }
