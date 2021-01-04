@@ -13,8 +13,9 @@
         <link rel="stylesheet" href="contactstyle.css">
 
         <!-- JQuery -->
-        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!-- Javascript -->
         <script src="Contactjavascript.js"></script>
@@ -24,31 +25,20 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-        <!-- AJAX to get user location - function retrieveUserCountryInformation() -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <!-- NavBar -->
-        <nav class="clearfix">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="blog.html">Blog</a></li>
-             </ul>
-          </nav>
-          
-          <div class="google_email" id="google_email">
-            <div class="googleform_top_bar">
+        
+        
+        <div class="google_email" id="google_email" style="display: none">
+            <div class="google_email_top_bar" id="google_email_top_bar" ondblclick="composeMessage();">
                 <p class="new_message_text">New Message</p>
                 <div class="action_bar">
                     <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
                     <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
-                    <button id="close" class="close"><img class="close_img" src="images/gmail_icons/close.png"/></button>
+                    <button id="close" class="close" onclick="composeMessage();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
                 </div>
             </div>
             <div class="googleform">
@@ -56,19 +46,36 @@
                     <div class="form-group">
                         <input class="input_to" placeholder="To"></input>
                         <input class="input_subject" placeholder="Subject"></input>
+                        <textarea class="input_area"></textarea>
                         <div class="googleform_bottom_bar">
                             <button class="send_button">Send</button>
                         </div>
                     </div>
                 </form>
             </div>
-          </div>
+        </div>
 
         <div class="compose" onclick="composeMessage();">
             <img class="compose_img" src="images/gmail_icons/google_gmail_logo.png">
-            <label class="compose_label">Compose</label>
+            <label class="compose_label">Contact</label>
+        </div>
+        
+        <div class="bottom">
+            <ul class="bottom_nav">
+                <li>
+                <span>LinkedIn</span>
+                <a href="http://www.linkedin.com" title="LinkedIn"><img src="/playground/osx-dock/linkedin-icon.png" /></a>
+                </li>
+            </ul>
         </div>
 
-
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $( function() {
+              $(".google_email").draggable({containment: "window", cursor: "move", scroll: false});
+            });
+        </script>
     </body>
 </html>

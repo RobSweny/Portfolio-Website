@@ -26,10 +26,10 @@ $(document).ready(function() {
 
 function composeMessage(){
     var compose = document.getElementById('google_email');
-    if (document.getElementById('google_email').style.display === "none"){
+    if (compose.style.display == "none"){
         compose.style.display = "block";
     } else {
         compose.style.display = "none";
     }
-    
 }
+
