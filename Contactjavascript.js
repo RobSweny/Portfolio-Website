@@ -17,7 +17,7 @@ $(document).ready(function() {
         $(this).children('img').attr("src", "images/gmail_icons/close.png");
     });
 
-    $("#nav_div").mouseenter(function() {
+    $("#contact_div").mouseenter(function() {
         $(this).css("background-color","#f2f2f2");
     }).mouseout(function() {
         $(this).css("background-color","");
@@ -28,6 +28,30 @@ $(document).ready(function() {
     }).mouseout(function() {
         $(this).css("background-color","");
     });
+
+    $("#google_email").mousedown(function() {
+        $(this).css('z-index', '2');
+        $("#player").css('z-index', '1');
+    })
+
+    $("#player").mousedown(function() {
+        $(this).css('z-index', '2');
+        $("#google_email").css('z-index', '1');
+    })
+
+    $("#contact_div").mousedown(function() {
+        $("#google_email").css('z-index', '2');
+        $("#player").css('z-index', '1');
+    })
+
+    $("#player_div").mousedown(function() {
+        $("#player").css('z-index', '2');
+        $("#google_email").css('z-index', '1');
+    })
+
+    
+    
+
 });
 
 function composeMessage(){
@@ -47,4 +71,5 @@ function launchMusicPlayer(){
         compose.style.display = "none";
     }
 }
+
 

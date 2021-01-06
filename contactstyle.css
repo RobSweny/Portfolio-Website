@@ -274,8 +274,9 @@ button:focus {
     width: 75px;
     border-radius: 50%;
     margin: 10px;
-    background: url('images/gmail_icons/gmail_icon.png') no-repeat;
-    background-size: contain;
+    background: url('images/icons/full_music_icon.png') no-repeat;
+    background-position-x: 12px;
+    background-size: 50px 50px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
@@ -289,12 +290,13 @@ button:focus {
 }
 
 
-.nav_div {
+.contact_div {
     height: 75px;
     width: 75px;
     border-radius: 50%;
     margin: 10px;
     background: url('images/gmail_icons/gmail_icon.png') no-repeat;
+    background-size: 50px 50px;
     background-size: contain;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -303,7 +305,12 @@ button:focus {
     font-size: 14px;
 }
 
-.nav_div:hover {
+.contact_div img {
+    height: 50px;
+    width: 50px;
+}
+
+.contact_div:hover {
     color: rgb(43, 43, 43);
     transform: scale(1.2);
 }
@@ -319,7 +326,7 @@ button:focus {
     margin-left: 25%;
     padding-left: 20px;
     width: 50%;
-    background-color: rgba(255, 255, 255, .15);  
+    background-color: #ffffff26;  
     backdrop-filter: blur(5px);
     border-radius: 15px 15px 0px 0px;
   }
@@ -345,12 +352,138 @@ button:focus {
 
 /* Music player */
 .player {
-    position: absolute;
-    top: 50%;
-    left:50%;
+    position: fixed;
+    top: 15%;
+    left:25%;
     width: 330px;
     height: 530px;
     border-radius: 15px;
     background-color: #fff6e7;
     box-shadow: 0 0 4px #1a1a1a;
+    z-index: 1;
+}
+
+/* Top Nav */
+/* Add a black background color to the top navigation */
+.topnav {
+    position: fixed;
+    height: 25px;
+    width: 110vw;
+    margin: 0;
+    top: 0;
+    background-color: #333;
+    margin-left: -10px;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 6px;
+}
+
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    text-decoration: none;
+    outline: none;
+    position: fixed;
+    right: 0;
+    margin-right: 20px;
+    
+    /*fix for FF unable to apply focus style bug */
+
+    
+    /*required for proper track sizing in FF*/
+    width: 200px;
+    background: transparent;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 200px;
+    height: 5px;
+    background-color: #565656;
+    border: none;
+    border-radius: 3px;
+    outline: none !important;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #F06A00;
+    margin-top: -5px;
+}
+
+input[type=range]:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+input.middle:focus {
+    outline-width: 0;
+}
+
+input[type=range]::-moz-range-track {
+    width: 200px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #F06A00;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    width: 200px;
+    height: 5px;
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #373737;
+    border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #575757;
+    border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #F06A00;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #373737;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #575757;
 }
