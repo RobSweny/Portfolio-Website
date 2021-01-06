@@ -22,10 +22,25 @@ $(document).ready(function() {
     }).mouseout(function() {
         $(this).css("background-color","");
     });
+
+    $("#player_div").mouseenter(function() {
+        $(this).css("background-color","#f2f2f2");
+    }).mouseout(function() {
+        $(this).css("background-color","");
+    });
 });
 
 function composeMessage(){
     var compose = document.getElementById('google_email');
+    if (compose.style.display == "none"){
+        compose.style.display = "block";
+    } else {
+        compose.style.display = "none";
+    }
+}
+
+function launchMusicPlayer(){
+    var compose = document.getElementById('player');
     if (compose.style.display == "none"){
         compose.style.display = "block";
     } else {

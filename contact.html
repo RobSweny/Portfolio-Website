@@ -11,6 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="contactstyle.css">
+        <link rel="stylesheet" href="contactstyle.scss">
 
         <!-- JQuery -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -63,14 +64,19 @@
 
         <div class="navbar">
             <div id="nav_div" class="nav_div" onclick="composeMessage();">contact</div>
+            <div id="player_div" class="player_div" onclick="launchMusicPlayer();">music</div>
         </div>
+
+        <div id="player" class="player" style="display: none"></div>
     
+
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
             $( function() {
               $(".google_email").draggable({containment: "window", cursor: "move", scroll: false});
+              $(".player").draggable({containment: "window", cursor: "move", scroll: false});
             });
         </script>
     </body>
