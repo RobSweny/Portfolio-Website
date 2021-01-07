@@ -386,18 +386,34 @@ button:focus {
     padding-top: 6px;
 }
 
+.volume_icon {
+    position: fixed;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-top: 2px;
+    right: 225px;
+    background: url('images/icons/volume_icon.png') no-repeat;
+    background-size: contain !important;
+}
+
+.volume_div {
+    display: block;
+    position: fixed;
+    right: 0;
+    margin-right: 10px;
+}
+
 input[type=range] {
     /*removes default webkit styles*/
     -webkit-appearance: none;
     text-decoration: none;
     outline: none;
-    position: fixed;
-    right: 0;
-    margin-right: 20px;
-    
-    /*fix for FF unable to apply focus style bug */
+
+    padding-top: 3px;
 
     
+    /*fix for FF unable to apply focus style bug */
     /*required for proper track sizing in FF*/
     width: 200px;
     background: transparent;

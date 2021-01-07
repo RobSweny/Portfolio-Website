@@ -49,6 +49,30 @@ $(document).ready(function() {
         $("#google_email").css('z-index', '1');
     })
 
+    var volHolder;
+    $("#volume_icon").mousedown(function() {
+        if (document.getElementById('volume').value != 0){
+            volHolder = document.getElementById('volume').value;
+        }
+        if (document.getElementById('volume').value != 0){
+            document.getElementById('volume').value = 0;
+        } else {
+            document.getElementById('volume').value = volHolder;
+        }
+    })
+
+    var slider = document.getElementById('volume')
+
+    function onChange(event) {
+        var x = event.target.value
+        if (x ==0) {
+            $('.volume_icon').css('background-image', 'url(images/icons/volume_icon_muted.png)');
+        } else {
+            $('.volume_icon').css('background-image', 'url(images/icons/volume_icon.png)');
+        }
+    }
+
+    document.getElementById('volume').addEventListener('input', onChange)
     
     
 
