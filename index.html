@@ -10,62 +10,93 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="indexstyle.css">
-        <script src="Indexjavascript.js"></script>
+        <link rel="stylesheet" href="contactstyle.css">
+        <link rel="stylesheet" href="contactstyle.scss">
+
+        <!-- JQuery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <!-- Javascript -->
+        <script src="Contactjavascript.js"></script>
 
         <!-- Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-        <!-- Sweet Alert -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-        <!-- AJAX to get user location - function retrieveUserCountryInformation() -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     </head>
-    <body onload="onLoadWeather()">
+    <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- NavBar -->
-        <nav class="clearfix">
-            <ul>
-              <li><a id="clearfix_a_index" href="about.html">About</a></li>
-              <li><a id="clearfix_a_portfolio" href="portfolio.html">Portfolio</a></li>
-              <li><a id="clearfix_a_blog" href="blog.html">Blog</a></li>
-              <li><a id="clearfix_a_contact" href="contact.html">Contact</a></li>
-             </ul>
-        </nav>
+        <div class="topnav">
+            <a>Rob Sweny Portfolio</a>
 
-        <div id="snow"></div>
+        <div id="volume_div" class="volume_div">
+            <p id="volume_icon" class="volume_icon"></p>
+            <input type="range" id="volume" name="volume" min="0" max="100" value="90" step="10">
+        </div>
+        </div> 
 
-        
-        <!-- Weather/temperature card -->
-        <div id="weather" onmouseover='ShowMeOnHover();'>
-            <p id="description"></p>
-            <p id="location"></p>
-            <h1 id="temp"></h1>
-            <p id="arrow_down" class="arrow_down"></p>
-
-            <form id="location_group" onsubmit="userRequestLocation()">
-                <div class="form-group">
-                <label id="location_input_label" for="location_input">Change user location: </label>
-                <input id="location_input" type="location" class="form-control" aria-describedby="location_help" maxlength="20" placeholder="User location: ">
-                </div>
-                <button id="location_button" type="submit" class="btn btn-primary">Submit</button>
-            </form>
+        <div class="desktop">
+            <p id="trash_icon" class="trash_icon" onclick="animateLoad();">Trash</p>
+            <p id="app_icon" class="app_icon">App</p>
         </div>
 
-        <!-- Tag for sun/moon-->
-        <div id="element" class="element"></div>
-        <b id="sun" class="sun"></b>
-
-        <img class="firstHill" src="images/FirstHillSpring.png">
-        <img class="secondHill" src="images/SecondHillSpring.png">
-        <img class="thirdHill" src="images/ThirdHillSpring.png">
-
+        <div id="folder" class="animate__animated animate__bounceInLeft" style="display: none">
+          <div id="old_index" class="old_index">oldweb.html</div>
+        </div>
         
+        <div class="animate__animated animate__backInUp" id="google_email" style="display: none">
+            <div class="google_email_top_bar" id="google_email_top_bar" ondblclick="composeMessage();">
+                <p class="new_message_text">New Message</p>
+                <div class="action_bar">
+                    <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
+                    <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
+                    <button id="close" class="close" onclick="composeMessage();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
+                </div>
+            </div>
+            <div class="googleform">
+                <form>
+                    <div class="form-group">
+                        <input class="input_to" placeholder="To"></input>
+                        <input class="input_subject" placeholder="Subject"></input>
+                        <textarea class="input_area"></textarea>
+                        <div class="googleform_bottom_bar">
+                            <button class="send_button">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Google compose icon -->
+        <!-- <div class="compose" onclick="composeMessage();">
+            <img class="compose_img" src="images/gmail_icons/google_gmail_logo.png">
+            <label class="compose_label">Contact</label>
+        </div> -->
+
+        <div class="navbar">
+            <div id="contact_div" class="contact_div" onclick="composeMessage();">contact</div>
+            <div id="player_div" class="player_div" onclick="launchMusicPlayer();">music</div>
+        </div>
+
+        <div id="player" class="animate__animated animate__backInUp" style="display: none"></div>
+    
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $( function() {
+              $("#google_email").draggable({containment: "window", cursor: "move", scroll: false});
+              $("#player").draggable({containment: "window", cursor: "move", scroll: false});
+            });
+        </script>
     </body>
 </html>

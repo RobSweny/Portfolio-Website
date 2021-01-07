@@ -1,0 +1,194 @@
+@font-face {
+    font-family: space;
+    src: url('fonts/spacegrotesk/SpaceGrotesk[wght].ttf')
+}
+
+@font-face {
+    font-family: montserrat;
+    src: url('fonts/Montserrat/Montserrat-SemiBold.ttf')
+}
+
+@font-face {
+    font-family: montserrat-light;
+    src: url('fonts/Montserrat/Montserrat-Light.ttf')
+}
+
+@font-face {
+    font-family: work-sans;
+    src: url('fonts/Work_Sans/WorkSans-VariableFont_wght.ttf')
+}
+
+body {
+    overflow: hidden;
+
+    /* Midnight Blue 
+    background-color: rgb(36, 77, 78); */
+
+    /* Evening Blue */
+    background-color: rgb(96, 157, 159);
+
+    /* Morning Blue */
+    background-color: rgb(167, 214, 216);
+}
+
+/* Nav bar */
+nav {
+    width:80%;
+    margin:0 auto;
+    background:blue;
+}
+
+div {
+    float:left;
+}
+
+ul {
+    margin:0;
+    padding:0;
+    float:right;
+}
+
+li { 
+    list-style:none;
+    display:inline;
+}
+
+a {
+    color: #090909;
+    font-family: montserrat;
+    text-decoration:none;
+    float:left;
+    padding:20px;
+}
+
+#weather {
+    font-family: work-sans;
+    position: fixed;
+    height: 100px;
+    width: 150px;
+    border-radius: 35px;
+    top: 0;
+    left: 0;
+    margin: 20px;
+    text-align: center;
+    color: #090909;
+    background-color: white;
+    line-height: 8px;
+    box-shadow: 6px 12px yellow;
+}
+
+
+#location_input {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.swal2-title {
+    font-family: montserrat-light;
+    font-size: 12px;
+}
+
+b.sun {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 200px;
+    bottom: 0;
+    left: 0;
+    z-index: -25;
+    background-color: #fff347;
+    border-radius: 50%;
+}
+
+#snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+}
+
+.firstHill {
+    display: block;
+    position: fixed;
+    height: 700px;
+    width: 1250px;
+    z-index: -1;
+    margin: 0 auto;
+    bottom: 0;
+    left: 40%;
+    transform: translate(-40%, 0);
+}
+
+.secondHill {
+    display: block;
+    position: fixed;
+    height: 750px;
+    width: 1300px;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%, 0);
+    bottom: 0;
+}
+
+.thirdHill {
+    display: block;
+    position: fixed;
+    height: 900px;
+    width: 1500px;
+    margin: 0 auto;
+    z-index: -1;
+    left: 55%;
+    transform: translate(-55%, 0);
+    bottom: 0;
+}
+
+
+/* Glow to sun or moon */
+.element {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 200px;
+    bottom: 0;
+    left: 0;
+    z-index: -25;
+    box-shadow: 0px 0px 9px 4px #e9eeca;
+    animation: glowShadow 5s linear infinite alternate;
+    border-radius: 50%;
+}
+
+
+@keyframes glowShadow{
+    to {
+        box-shadow: 0px 0px 35px 15px #f7f5dc;
+    }
+}
+
+@keyframes glowImage{
+    to {
+        -webkit-filter: brightness(1);
+        filter: brightness(1);
+    }
+} 
+
+.arrow_down {
+    position: absolute;
+    border: solid rgb(70, 70, 70);
+    border-width: 0 3px 3px 0;
+    margin-left: 120px;
+    margin-top: 70px;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+}
+
+#location_group {
+    display: none;
+}
