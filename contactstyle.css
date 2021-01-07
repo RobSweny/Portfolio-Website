@@ -397,6 +397,54 @@ button:focus {
     background-size: contain !important;
 }
 
+.desktop {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 400px;
+    margin-top: 35px;
+    margin-left: 10px;
+    top: 0;
+    left: 0;
+}
+
+.trash_icon {
+    height: 50px;
+    width: 50px;
+    background: url('images/icons/bin_icon.png') no-repeat;
+    background-size: contain !important;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(223, 221, 221);
+    text-align: center;
+    line-height: 125px;
+    font-size: 13px;
+    margin: 15px;
+}
+
+.trash_icon:hover {
+    transform: scale(1.1);
+}
+
+
+.app_icon {
+    height: 50px;
+    width: 50px;
+    background: url('images/icons/bin_icon.png') no-repeat;
+    background-size: contain !important;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(223, 221, 221);
+    text-align: center;
+    line-height: 125px;
+    font-size: 13px;
+    margin: 15px;
+}
+
+.app_icon:hover {
+    transform: scale(1.1);
+}
+
 .volume_div {
     display: block;
     position: fixed;
