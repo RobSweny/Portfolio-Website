@@ -73,7 +73,7 @@ $(document).ready(function() {
     }
 
     document.getElementById('volume').addEventListener('input', onChange)
-    
+
     
 
 });
@@ -81,19 +81,34 @@ $(document).ready(function() {
 function composeMessage(){
     var compose = document.getElementById('google_email');
     if (compose.style.display == "none"){
+        compose.classList.replace('animate__backOutDown', 'animate__backInUp');
         compose.style.display = "block";
     } else {
-        compose.style.display = "none";
+        compose.classList.replace('animate__backInUp', 'animate__backOutDown');
+        var delayInMilliseconds = 1000; //1 second
+
+        setTimeout(function() {
+            compose.style.display = "none";
+        }, delayInMilliseconds);
     }
 }
 
 function launchMusicPlayer(){
     var compose = document.getElementById('player');
     if (compose.style.display == "none"){
+        compose.classList.replace('animate__backOutDown', 'animate__backInUp');
         compose.style.display = "block";
     } else {
-        compose.style.display = "none";
+        compose.classList.replace('animate__backInUp', 'animate__backOutDown');
+        var delayInMilliseconds = 1000; //1 second
+
+        setTimeout(function() {
+            compose.style.display = "none";
+        }, delayInMilliseconds);
     }
+}
+
+function animateLoad(){
 }
 
 
