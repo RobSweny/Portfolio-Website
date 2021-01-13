@@ -377,6 +377,23 @@ button:focus {
     --animate-duration: 0.1s;
 }
 
+.tophalf {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: 50%;
+}
+
+.bottomhalf {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: 50%;
+}
 
 /* Top Nav */
 /* Add a black background color to the top navigation */

@@ -98,10 +98,14 @@ function composeMessage(){
     var compose = document.getElementById('google_email');
     if (compose.style.display == "none"){
         compose.classList.replace('animate__backOutDown', 'animate__backInUp');
+
+        if (window.innerHeight - compose.getBoundingClientRect().bottom < 450){
+            alert('bottom');
+        }
         compose.style.display = "block";
     } else {
         compose.classList.replace('animate__backInUp', 'animate__backOutDown');
-        var delayInMilliseconds = 500; //1 second
+        var delayInMilliseconds = 100; //1 second
 
         setTimeout(function() {
             compose.style.display = "none";
