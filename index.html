@@ -34,16 +34,17 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="tophalf"></div>
-        <div class="bottomhalf"></div>
+        <div id="iframe_div">
+            <iframe id="iframe" class="iframe" src="./linkedin.html" width="1000" height="600" frameborder="0" >
+        </div>
 
         <div class="topnav">
             <a>Rob Sweny Portfolio</a>
-
-        <div id="volume_div" class="volume_div">
-            <p id="volume_icon" class="volume_icon"></p>
-            <input type="range" id="volume" name="volume" min="0" max="100" value="90" step="10">
-        </div>
+            
+            <div id="volume_div" class="volume_div">
+                <p id="volume_icon" class="volume_icon"></p>
+                <input type="range" id="volume" name="volume" min="0" max="100" value="90" step="10">
+            </div>
         </div> 
 
         <div class="desktop">
@@ -52,7 +53,7 @@
         </div>
 
         <div id="folder" class="animate__animated animate__bounceInLeft" style="display: none">
-          <div id="old_index" class="old_index">oldweb.html</div>
+          <div id="old_index" class="old_index">oldWeb.html</div>
         </div>
         
         <div class="animate__animated animate__backInUp" id="google_email" style="display: none">
@@ -99,6 +100,7 @@
             $( function() {
               $("#google_email").draggable({containment: "window", cursor: "move", scroll: false});
               $("#player").draggable({containment: "window", cursor: "move", scroll: false});
+              $("#iframe_div").draggable({containment: "window", cursor: "move", scroll: false});
             });
         </script>
     </body>

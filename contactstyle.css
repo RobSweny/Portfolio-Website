@@ -365,7 +365,8 @@ button:focus {
     --animate-duration: 0.2s;
 }
 
-.animate__animated.animate__backOutDown {
+
+.animate__animated.animate__fadeOutDownBig {
     --animate-duration: 0.1s;
 }
 
