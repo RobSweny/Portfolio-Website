@@ -34,10 +34,11 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div id="iframe_div">
-            <iframe id="iframe" class="iframe" src="./linkedin.html" width="1000" height="600" frameborder="0" >
+        <div>
+            <p id="iframe_nav"></p>
+            <iframe id="iframe" class="iframe" src="./linkedin.html" width="1000" height="600" frameborder="0" ></iframe>
         </div>
-
+        
         <div class="topnav">
             <a>Rob Sweny Portfolio</a>
             
@@ -100,7 +101,7 @@
             $( function() {
               $("#google_email").draggable({containment: "window", cursor: "move", scroll: false});
               $("#player").draggable({containment: "window", cursor: "move", scroll: false});
-              $("#iframe_div").draggable({containment: "window", cursor: "move", scroll: false});
+              $("#iframe_nav").draggable({containment: "window", cursor: "move", scroll: false});
             });
         </script>
     </body>
