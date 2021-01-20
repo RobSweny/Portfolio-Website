@@ -124,6 +124,22 @@ function launchMusicPlayer(){
     }
 }
 
+function launchProfile(){
+    var compose = document.getElementById('player');
+    if (compose.style.display == "none"){
+        compose.classList.replace('animate__fadeOutDownBig', 'animate__backInUp');
+        compose.style.display = "block";
+    } else {
+        compose.classList.replace('animate__backInUp', 'animate__fadeOutDownBig');
+        var delayInMilliseconds = 500; //1 second
+
+        setTimeout(function() {
+            compose.style.display = "none";
+        }, delayInMilliseconds);
+    }
+}
+
+
 function animateLoad(){
     var compose = document.getElementById('folder');
     if (compose.style.display == "none"){

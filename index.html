@@ -33,10 +33,21 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        
 
-        <div>
-            <p id="iframe_nav"></p>
-            <iframe id="iframe" class="iframe" src="./linkedin.html" width="1000" height="600" frameborder="0" ></iframe>
+
+        <div id="profile" class="animate__animated animate__backInUp">
+            <div class="profile_top_bar" id="profile_top_bar">
+                <p class="new_message_text">Profile</p>
+                <div class="action_bar">
+                    <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
+                    <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
+                    <button id="close" class="close" onclick=""><img class="close_img" src="images/gmail_icons/close.png"/></button>
+                </div>
+            </div> 
+            <div class="iframe_div">
+                <iframe id="iframe" class="iframe" src="./linkedin.html" width="1000" height="600" frameborder="0" ></iframe>
+            </div>
         </div>
         
         <div class="topnav">
@@ -89,9 +100,19 @@
         <div class="navbar">
             <div id="contact_div" class="contact_div" onclick="composeMessage();">contact</div>
             <div id="player_div" class="player_div" onclick="launchMusicPlayer();">music</div>
+            <div id="profile_div" class="profile_div" onclick="launchProfile();">profile</div>
         </div>
 
-        <div id="player" class="animate__animated animate__backInUp" style="display: none"></div>
+        <div id="player" class="animate__animated animate__backInUp" style="display: none">
+            <div class="player_top_bar" id="player_top_bar">
+                <p class="new_message_text">Music Player</p>
+                <div class="action_bar">
+                    <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
+                    <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
+                    <button id="close" class="close" onclick="launchMusicPlayer();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
+                </div>
+            </div> 
+        </div>
     
 
         <!-- JQuery -->
@@ -101,7 +122,7 @@
             $( function() {
               $("#google_email").draggable({containment: "window", cursor: "move", scroll: false});
               $("#player").draggable({containment: "window", cursor: "move", scroll: false});
-              $("#iframe_nav").draggable({containment: "window", cursor: "move", scroll: false});
+              $("#profile").draggable({containment: "window", cursor: "move", scroll: false});
             });
         </script>
     </body>

@@ -18,13 +18,8 @@
     src: url('fonts/Work_Sans/WorkSans-VariableFont_wght.ttf')
 }
 
-#iframe_nav {
-    display: inline;
-    position: fixed;
-    background-color: yellow;
-    height: 15px;
-    width: 800px;
-}
+
+
 
 body {
     overflow: hidden;
