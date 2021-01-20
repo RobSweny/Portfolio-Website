@@ -29,6 +29,12 @@ $(document).ready(function() {
         $(this).css("background-color","");
     });
 
+    $("#profile_div").mouseenter(function() {
+        $(this).css("background-color","rgba(255, 255, 255, 0.2)");
+    }).mouseout(function() {
+        $(this).css("background-color","");
+    });
+    
     $("#google_email").mousedown(function() {
         $(this).css('z-index', '2');
         $("#player").css('z-index', '1');
