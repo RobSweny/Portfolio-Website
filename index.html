@@ -36,17 +36,17 @@
         
 
 
-        <div id="profile" class="animate__animated animate__backInUp">
+        <div id="profile" class="animate__animated animate__backInUp" style="display: none">
             <div class="profile_top_bar" id="profile_top_bar">
                 <p class="new_message_text">Profile</p>
                 <div class="action_bar">
                     <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
                     <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
-                    <button id="close" class="close" onclick=""><img class="close_img" src="images/gmail_icons/close.png"/></button>
+                    <button id="close" class="close" onclick="launchProfile();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
                 </div>
             </div> 
             <div class="iframe_div">
-                <iframe id="iframe" class="iframe" src="./linkedin.html" width="1000" height="600" frameborder="0" ></iframe>
+                <iframe id="iframe" class="iframe" src="./linkedin.html" security="restricted" width="1000" height="600" frameborder="0" ></iframe>
             </div>
         </div>
         

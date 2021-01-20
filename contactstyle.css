@@ -298,6 +298,27 @@ button:focus {
     transform: scale(1.2);
 }
 
+.profile_div {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin: 10px;
+    background: url('images/icons/full_music_icon.png') no-repeat;
+    background-position-x: 12px;
+    background-size: 50px 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    line-height: 110px;
+    font-size: 14px;
+}
+
+.profile_div:hover {
+    transform: scale(1.2);
+}
+
+
+
 
 .contact_div {
     height: 75px;

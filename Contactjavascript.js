@@ -125,7 +125,7 @@ function launchMusicPlayer(){
 }
 
 function launchProfile(){
-    var compose = document.getElementById('player');
+    var compose = document.getElementById('profile');
     if (compose.style.display == "none"){
         compose.classList.replace('animate__fadeOutDownBig', 'animate__backInUp');
         compose.style.display = "block";
