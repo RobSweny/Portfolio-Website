@@ -55,9 +55,10 @@
             
             <div id="volume_div" class="volume_div">
                 <p id="volume_icon" class="volume_icon"></p>
-                <input type="range" id="volume" name="volume" min="0" max="100" value="90" step="10">
+                <input type="range" id="volume" name="volume" min="0" max="100" value="90" step="10"/>
             </div>
         </div> 
+
 
         <div class="desktop">
             <p id="trash_icon" class="trash_icon" onclick="animateLoad();">Trash</p>
@@ -111,6 +112,10 @@
                     <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
                     <button id="close" class="close" onclick="launchMusicPlayer();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
                 </div>
+                <img class="player_image">
+                <div class="container-audio">
+                    <audio controls loop src="music/lofi_1.mp3" type="audio/mpeg"></audio>
+                </div>        
             </div> 
         </div>
     

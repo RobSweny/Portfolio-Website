@@ -38,6 +38,7 @@ $(document).ready(function() {
     $("#google_email").mousedown(function() {
         $(this).css('z-index', '2');
         $("#player").css('z-index', '1');
+        $("#profile").css('z-index', '1');
     })
 
     $("#trash_icon").mousedown(function() {
@@ -49,56 +50,99 @@ $(document).ready(function() {
     $("#player").mousedown(function() {
         $(this).css('z-index', '2');
         $("#google_email").css('z-index', '1');
+        $("#profile").css('z-index', '1');
+    })
+
+    $("#profile").mousedown(function() {
+        $(this).css('z-index', '2');
+        $("#google_email").css('z-index', '1');
+        $("#player").css('z-index', '1');
+    })
+
+    $("#profile_div").mousedown(function() {
+        $("#profile").css('z-index', '2');
+        $("#player").css('z-index', '1');
+        $("#google_email").css('z-index', '1');
     })
 
     $("#contact_div").mousedown(function() {
         $("#google_email").css('z-index', '2');
         $("#player").css('z-index', '1');
+        $("#profile").css('z-index', '1');
     })
 
     $("#player_div").mousedown(function() {
         $("#player").css('z-index', '2');
         $("#google_email").css('z-index', '1');
+        $("#profile").css('z-index', '1');
     })
 
     $("#folder").mousedown(function() {
         $("#folder").css('z-index', '2');
         $("#player").css('z-index', '1');
         $("#google_email").css('z-index', '1');
+        $("#profile").css('z-index', '1');
     })
 
     
 
     var volHolder;
     $("#volume_icon").mousedown(function() {
+        var audioobject = document.getElementsByTagName("audio")[0]
         if (document.getElementById('volume').value != 0){
             volHolder = document.getElementById('volume').value;
         }
         if (document.getElementById('volume').value != 0){
             document.getElementById('volume').value = 0;
+            audioobject.volume = 0 / 100;
         } else {
             document.getElementById('volume').value = volHolder;
+            audioobject.volume = volHolder / 100;
         }
     })
 
     
-
+    // Capturing slider change
     var slider = document.getElementById('volume')
-
     function onChange(event) {
         var x = event.target.value
-        if (x ==0) {
+        var audioobject = document.getElementsByTagName("audio")[0];
+        // Ensure x can't be greater or less than slider value
+        if (x < 0){
+            x = 1;
+        } else if (x > 100){
+            x = 99;
+        }
+        audioobject.volume = x / 100;
+
+        if (x == 0) {
             $('.volume_icon').css('background-image', 'url(images/icons/volume_icon_muted.png)');
         } else {
             $('.volume_icon').css('background-image', 'url(images/icons/volume_icon.png)');
         }
     }
-
     document.getElementById('volume').addEventListener('input', onChange)
 
-    
+    var audioSlider = document.getElementsByTagName("audio")[0];
+    audioSlider.onvolumechange = function() {
+        slider.value = audioSlider.volume * 100;
+        if (audioSlider.volume * 100 == 0){
+            $('.volume_icon').css('background-image', 'url(images/icons/volume_icon_muted.png)');
+        } else {
+            $('.volume_icon').css('background-image', 'url(images/icons/volume_icon.png)');
+        }
+    };
+
+    audioSlider.addEventListener('volumechange',function(e){
+        if(this.muted)
+            slider.value = 0;
+    }, false);
+      
+        
+
 
 });
+
 
 function composeMessage(){
     var compose = document.getElementById('google_email');
