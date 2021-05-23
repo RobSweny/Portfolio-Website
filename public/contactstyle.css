@@ -77,6 +77,16 @@ body {
     background-color: #404040;
 }
 
+.player_top_bar {
+    position: absolute;
+    width: 330px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #404040;
+}
 
 .action_bar {
     display: flex;
@@ -288,6 +298,27 @@ button:focus {
     transform: scale(1.2);
 }
 
+.profile_div {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin: 10px;
+    background: url('images/icons/profile.png') no-repeat;
+    background-position-x: 12px;
+    background-size: 50px 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    line-height: 110px;
+    font-size: 14px;
+}
+
+.profile_div:hover {
+    transform: scale(1.2);
+}
+
+
+
 
 .contact_div {
     height: 75px;
@@ -356,16 +387,49 @@ button:focus {
     width: 330px;
     height: 530px;
     border-radius: 15px;
-    background-color: #fff6e7;
+    background-color: #ffffff26;  
+    backdrop-filter: blur(5px);
     box-shadow: 0 0 4px #1a1a1a;
     z-index: 1;
+}
+
+.player_image {
+    display: block;
+    position: relative;
+    height: 250px;
+    width: 250px;
+    left: 11%;
+    margin-top: 45px;
+    background: url('images/icons/profile.png');
+    box-shadow: 0 0 4px #1a1a1a;
+    border-radius: 15px;
+}
+
+.container-audio {
+    width: 400px;
+    height: 100;
+    color: #e6e6e605;  
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+}
+
+audio {
+    display: block;
+    position: relative;
+    width: 300px;
+    left: 4%;
+    bottom: 0;
+    margin-top: 150px;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
 }
 
 .animate__animated.animate__backInUp {
     --animate-duration: 0.2s;
 }
 
-.animate__animated.animate__backOutDown {
+
+.animate__animated.animate__fadeOutDownBig {
     --animate-duration: 0.1s;
 }
 
@@ -377,6 +441,23 @@ button:focus {
     --animate-duration: 0.1s;
 }
 
+.tophalf {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: 50%;
+}
+
+.bottomhalf {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: 50%;
+}
 
 /* Top Nav */
 /* Add a black background color to the top navigation */
@@ -454,6 +535,35 @@ button:focus {
     left: 0;
     margin-left: 150px;
     margin-top: 150px;
+}
+
+#profile {
+    position: fixed;
+    top: 5%;
+    left:0;
+    width: 900px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px #1a1a1a;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#iframe {
+    border-radius: 10px;
+    margin-left: -50px;
+}
+
+
+.profile_top_bar {
+    position: absolute;
+    width: 900px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #404040;
 }
 
 
@@ -600,3 +710,5 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
     background: #575757;
 }
+
+
