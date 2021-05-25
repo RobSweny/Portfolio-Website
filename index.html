@@ -36,7 +36,7 @@
         
 
 
-        <div id="profile" class="animate__animated animate__backInUp" style="display: none">
+        <div id="profile" class="animate__animated animate__backInUp icon" onmousedown="mouseDown(this.id);" style="display: none">
             <div class="profile_top_bar" id="profile_top_bar">
                 <p class="new_message_text">Profile</p>
                 <div class="action_bar">
@@ -61,16 +61,16 @@
 
 
         <div class="desktop">
-            <p id="trash_icon" class="trash_icon" onclick="animateLoad();">Trash</p>
-            <p id="app_icon" class="app_icon">App</p>
+            <p id="trash_icon" class="icon" class="trash_icon" onclick="animateLoad();" onmousedown="mouseDown(this.id);">Trash</p>
+            <p id="app_icon" class="icon" onmousedown="mouseDown(this.id);">App</p>
         </div>
 
-        <div id="folder" class="animate__animated animate__bounceInLeft" style="display: none">
+        <div id="folder" class="animate__animated animate__bounceInLeft, icon" style="display: none">
           <div id="old_index" class="old_index">oldWeb.html</div>
         </div>
         
-        <div class="animate__animated animate__backInUp" id="google_email" style="display: none">
-            <div class="google_email_top_bar" id="google_email_top_bar" ondblclick="composeMessage();">
+        <div class="animate__animated animate__backInUp icon" id="google_email" onmousedown="mouseDown(this.id);" style="display: none">
+            <div class="google_email_top_bar icon" id="google_email_top_bar" ondblclick="composeMessage();" onmousedown="mouseDown(this.id);">
                 <p class="new_message_text">New Message</p>
                 <div class="action_bar">
                     <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
@@ -78,14 +78,19 @@
                     <button id="close" class="close" onclick="composeMessage();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
                 </div>
             </div>
-            <div class="googleform">
+            <div class="googleform icon" onmousedown="mouseDown(this.id);">
                 <form>
                     <div class="form-group">
-                        <input class="input_to" placeholder="To"></input>
+                        <input style="background-color: white;" class="input_to" disabled placeholder="To: Robsweny@gmail.com"></input>
                         <input class="input_subject" placeholder="Subject"></input>
                         <textarea class="input_area"></textarea>
                         <div class="googleform_bottom_bar">
-                            <button class="send_button">Send</button>
+                            <button class="send_button" onclick="send_message(); return false">Send</button>
+                        </div>
+                        <div class="action_bar">
+                            <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
+                            <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
+                            <button id="close" class="close" onclick="composeMessage();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
                         </div>
                     </div>
                 </form>
@@ -104,7 +109,7 @@
             <div id="profile_div" class="profile_div" onclick="launchProfile();">profile</div>
         </div>
 
-        <div id="player" class="animate__animated animate__backInUp" style="display: none">
+        <div id="player" class="animate__animated animate__backInUp icon" onmousedown="mouseDown(this.id);" style="display: none">
             <div class="player_top_bar" id="player_top_bar">
                 <p class="new_message_text">Music Player</p>
                 <div class="action_bar">
@@ -113,6 +118,7 @@
                     <button id="close" class="close" onclick="launchMusicPlayer();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
                 </div>
                 <img class="player_image">
+                <p class="player_text">LO-FI<br>BROWSING MUSIC</p>
                 <div class="container-audio">
                     <audio controls loop src="music/lofi_1.mp3" type="audio/mpeg"></audio>
                 </div>        

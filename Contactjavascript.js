@@ -34,55 +34,62 @@ $(document).ready(function() {
     }).mouseout(function() {
         $(this).css("background-color","");
     });
-    
-    $("#google_email").mousedown(function() {
-        $(this).css('z-index', '2');
-        $("#player").css('z-index', '1');
-        $("#profile").css('z-index', '1');
-    })
 
-    $("#trash_icon").mousedown(function() {
-        $("#folder").css('z-index', '2');
-        $("#player").css('z-index', '1');
-        $("#google_email").css('z-index', '1');
-    })
+    var slides = document.getElementsByClassName("slide");
+    for (var i = 0; i < slides.length; i++) {
+    Distribute(slides.item(i));
+    }
 
-    $("#player").mousedown(function() {
-        $(this).css('z-index', '2');
-        $("#google_email").css('z-index', '1');
-        $("#profile").css('z-index', '1');
-    })
 
-    $("#profile").mousedown(function() {
-        $(this).css('z-index', '2');
-        $("#google_email").css('z-index', '1');
-        $("#player").css('z-index', '1');
-    })
 
-    $("#profile_div").mousedown(function() {
-        $("#profile").css('z-index', '2');
-        $("#player").css('z-index', '1');
-        $("#google_email").css('z-index', '1');
-    })
+    // $("#google_email").mousedown(function() {
+    //     $(this).css('z-index', '2');
+    //     $("#player").css('z-index', '1');
+    //     $("#profile").css('z-index', '1');
+    // })
 
-    $("#contact_div").mousedown(function() {
-        $("#google_email").css('z-index', '2');
-        $("#player").css('z-index', '1');
-        $("#profile").css('z-index', '1');
-    })
+    // $("#trash_icon").mousedown(function() {
+    //     $("#folder").css('z-index', '2');
+    //     $("#player").css('z-index', '1');
+    //     $("#google_email").css('z-index', '1');
+    // })
 
-    $("#player_div").mousedown(function() {
-        $("#player").css('z-index', '2');
-        $("#google_email").css('z-index', '1');
-        $("#profile").css('z-index', '1');
-    })
+    // $("#player").mousedown(function() {
+    //     $(this).css('z-index', '2');
+    //     $("#google_email").css('z-index', '1');
+    //     $("#profile").css('z-index', '1');
+    // })
 
-    $("#folder").mousedown(function() {
-        $("#folder").css('z-index', '2');
-        $("#player").css('z-index', '1');
-        $("#google_email").css('z-index', '1');
-        $("#profile").css('z-index', '1');
-    })
+    // $("#profile").mousedown(function() {
+    //     $(this).css('z-index', '2');
+    //     $("#google_email").css('z-index', '1');
+    //     $("#player").css('z-index', '1');
+    // })
+
+    // $("#profile_div").mousedown(function() {
+    //     $("#profile").css('z-index', '2');
+    //     $("#player").css('z-index', '1');
+    //     $("#google_email").css('z-index', '1');
+    // })
+
+    // $("#contact_div").mousedown(function() {
+    //     $("#google_email").css('z-index', '2');
+    //     $("#player").css('z-index', '1');
+    //     $("#profile").css('z-index', '1');
+    // })
+
+    // $("#player_div").mousedown(function() {
+    //     $("#player").css('z-index', '2');
+    //     $("#google_email").css('z-index', '1');
+    //     $("#profile").css('z-index', '1');
+    // })
+
+    // $("#folder").mousedown(function() {
+    //     $("#folder").css('z-index', '2');
+    //     $("#player").css('z-index', '1');
+    //     $("#google_email").css('z-index', '1');
+    //     $("#profile").css('z-index', '1');
+    // })
 
     
 
@@ -144,6 +151,20 @@ $(document).ready(function() {
 });
 
 
+function mouseDown(evn) {
+    var temp = document.getElementById(evn);
+    temp.style.zIndex = "2";
+    var slides = document.getElementsByClassName("icon");
+    for (var i = 0; i < slides.length; i++) {
+        if (slides.item(i).id !== temp.id) {
+            temp = document.getElementById(slides.item(i));
+            alert(temp.id);
+            temp.style.zIndex = "1";
+        }
+    }
+}
+
+
 function composeMessage(){
     var compose = document.getElementById('google_email');
     if (compose.style.display == "none"){
@@ -172,6 +193,33 @@ function launchMusicPlayer(){
             compose.style.display = "none";
         }, delayInMilliseconds);
     }
+}
+
+/* https://app.mailersend.com/domains */
+/* DOCUMENTATION */
+/* https://github.com/mailersend/mailersend-nodejs */
+function send_message(){
+    const Recipient = require("mailersend").Recipient;
+    const EmailParams = require("mailersend").EmailParams;
+    const MailerSend = require("mailersend");
+    
+    const mailersend = new MailerSend({
+        api_key: "key",
+    });
+    
+    const recipients = [
+      new Recipient("your@client.com", "Your Client")
+    ];
+    
+    const emailParams = new EmailParams()
+          .setFrom("your@domain.com")
+          .setFromName("Your Name")
+          .setRecipients(recipients)
+          .setSubject("Subject")
+          .setHtml("This is the HTML content")
+          .setText("This is the text content");
+    
+    mailersend.send(emailParams);
 }
 
 function launchProfile(){
