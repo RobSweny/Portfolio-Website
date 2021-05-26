@@ -524,7 +524,7 @@ audio {
     left: 0;
 }
 
-#trash_icon {
+#trash {
     height: 50px;
     width: 50px;
     background: url('images/icons/bin_icon.png') no-repeat;
@@ -537,7 +537,7 @@ audio {
     margin: 15px;
 }
 
-#trash_icon:hover {
+#trash:hover {
     transform: scale(1.1);
 }
 
@@ -585,7 +585,7 @@ audio {
 }
 
 
-#app_icon {
+#app {
     height: 50px;
     width: 50px;
     background: url('images/icons/bin_icon.png') no-repeat;
@@ -598,7 +598,7 @@ audio {
     margin: 15px;
 }
 
-#app_icon:hover {
+#app:hover {
     transform: scale(1.1);
 }
 

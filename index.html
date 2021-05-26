@@ -11,7 +11,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="contactstyle.css">
-        <link rel="stylesheet" href="contactstyle.scss">
 
         <!-- JQuery -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -25,16 +24,9 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-
 
         <div id="profile" class="animate__animated animate__backInUp icon" onmousedown="mouseDown(this.id);" style="display: none">
             <div class="profile_top_bar" id="profile_top_bar">
@@ -52,25 +44,26 @@
         
         <div class="topnav"> 
             <a>Rob Sweny Portfolio</a>
-            
             <div id="volume_div" class="volume_div">
                 <p id="volume_icon" class="volume_icon"></p>
                 <input type="range" id="volume" name="volume" min="0" max="100" value="90" step="10"/>
             </div>
         </div> 
 
-
         <div class="desktop">
-            <p id="trash_icon" class="icon" class="trash_icon" onclick="animateLoad();" onmousedown="mouseDown(this.id);">Trash</p>
-            <p id="app_icon" class="icon" onmousedown="mouseDown(this.id);">App</p>
+            <p id="trash" class="icon" class="trash" onclick="animateLoad(this.id);" onmousedown="mouseDown(this.id);">Trash</p>
+            <p id="app" class="icon" class="app" onclick="animateLoad(this.id);" onmousedown="mouseDown(this.id);">App</p>
         </div>
 
-        <div id="folder" class="animate__animated animate__bounceInLeft, icon" style="display: none">
-          <div id="old_index" class="old_index">oldWeb.html</div>
+        <!-- hold all items in folders, managed by classname 'trash' 'app' etc.-->
+        <div id="folder" class="animate__animated animate__bounceInLeft icon" style="display: none">
+          <div id="old_index" class="old_index trash" style="display: none">trash.html</div>
+          <div id="old_index" class="old_index app" style="display: none">app.html</div>
+          <div id="old_index" class="old_index trash" style="display: none">trashtest.html</div>
         </div>
         
         <div class="animate__animated animate__backInUp icon" id="google_email" onmousedown="mouseDown(this.id);" style="display: none">
-            <div class="google_email_top_bar icon" id="google_email_top_bar" ondblclick="composeMessage();" onmousedown="mouseDown(this.id);">
+            <div class="google_email_top_bar" id="google_email_top_bar" ondblclick="composeMessage();" >
                 <p class="new_message_text">New Message</p>
                 <div class="action_bar">
                     <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
@@ -78,7 +71,7 @@
                     <button id="close" class="close" onclick="composeMessage();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
                 </div>
             </div>
-            <div class="googleform icon" onmousedown="mouseDown(this.id);">
+            <div class="googleform"">
                 <form>
                     <div class="form-group">
                         <input style="background-color: white;" class="input_to" disabled placeholder="To: Robsweny@gmail.com"></input>
@@ -86,11 +79,6 @@
                         <textarea class="input_area"></textarea>
                         <div class="googleform_bottom_bar">
                             <button class="send_button" onclick="send_message(); return false">Send</button>
-                        </div>
-                        <div class="action_bar">
-                            <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
-                            <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
-                            <button id="close" class="close" onclick="composeMessage();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
                         </div>
                     </div>
                 </form>
@@ -104,9 +92,10 @@
         </div> -->
 
         <div class="navbar">
-            <div id="contact_div" class="contact_div" onclick="composeMessage();">contact</div>
-            <div id="player_div" class="player_div" onclick="launchMusicPlayer();">music</div>
-            <div id="profile_div" class="profile_div" onclick="launchProfile();">profile</div>
+            <!-- add nav_icon to class and onmouseenter="navIconHighLight(this.id);" for highlighting on enter icon in nav -->
+            <div id="contact_div" class="contact_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="composeMessage();">contact</div>
+            <div id="player_div" class="player_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="launchMusicPlayer();">music</div>
+            <div id="profile_div" class="profile_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="launchProfile();">profile</div>
         </div>
 
         <div id="player" class="animate__animated animate__backInUp icon" onmousedown="mouseDown(this.id);" style="display: none">
@@ -125,7 +114,6 @@
             </div> 
         </div>
     
-
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
