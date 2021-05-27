@@ -88,37 +88,6 @@ function navIconHighLight(evn) {
 }
 
 
-function composeMessage(){
-    var compose = document.getElementById('google_email');
-    if (compose.style.display == "none"){
-        compose.classList.replace('animate__fadeOutDownBig', 'animate__backInUp');
-        compose.style.display = "block";
-    } else {
-        compose.classList.replace('animate__backInUp', 'animate__fadeOutDownBig');
-        var delayInMilliseconds = 500; //1 second
-
-        setTimeout(function() {
-            compose.style.display = "none";
-        }, delayInMilliseconds);
-    }
-}
-
-
-function launchMusicPlayer(){
-    var compose = document.getElementById('player');
-    if (compose.style.display == "none"){
-        compose.classList.replace('animate__fadeOutDownBig', 'animate__backInUp');
-        compose.style.display = "block";
-    } else {
-        compose.classList.replace('animate__backInUp', 'animate__fadeOutDownBig');
-        var delayInMilliseconds = 500; //1 second
-
-        setTimeout(function() {
-            compose.style.display = "none";
-        }, delayInMilliseconds);
-    }
-}
-
 /* https://app.mailersend.com/domains */
 /* DOCUMENTATION */
 /* https://github.com/mailersend/mailersend-nodejs */
@@ -146,8 +115,14 @@ function send_message(){
     mailersend.send(emailParams);
 }
 
-function launchProfile(){
-    var compose = document.getElementById('profile');
+
+function launchApp(evn){
+    /*
+        All apps in nav bar have classname x_div
+        when we call with this.id we can slice the '_div' off to get the id of the app
+    */
+    var temp = document.getElementById(evn);
+    var compose = document.getElementById(temp.id.slice(0, -4));
     if (compose.style.display == "none"){
         compose.classList.replace('animate__fadeOutDownBig', 'animate__backInUp');
         compose.style.display = "block";

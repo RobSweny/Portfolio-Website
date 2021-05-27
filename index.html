@@ -62,7 +62,7 @@
           <div id="old_index" class="old_index trash" style="display: none">trashtest.html</div>
         </div>
         
-        <div class="animate__animated animate__backInUp icon" id="google_email" onmousedown="mouseDown(this.id);" style="display: none">
+        <div id="contact" class="animate__animated animate__backInUp icon"  onmousedown="mouseDown(this.id);" style="display: none">
             <div class="google_email_top_bar" id="google_email_top_bar" ondblclick="composeMessage();" >
                 <p class="new_message_text">New Message</p>
                 <div class="action_bar">
@@ -93,9 +93,10 @@
 
         <div class="navbar">
             <!-- add nav_icon to class and onmouseenter="navIconHighLight(this.id);" for highlighting on enter icon in nav -->
-            <div id="contact_div" class="contact_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="composeMessage();">contact</div>
-            <div id="player_div" class="player_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="launchMusicPlayer();">music</div>
-            <div id="profile_div" class="profile_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="launchProfile();">profile</div>
+            <div id="contact_div" class="contact_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="launchApp(this.id);">contact</div>
+            <div id="player_div" class="player_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="launchApp(this.id);">music</div>
+            <div id="profile_div" class="profile_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="launchApp(this.id);">profile</div>
+            <div id="settings_div" class="settings_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="launchApp(this.id);">Settings</div>
         </div>
 
         <div id="player" class="animate__animated animate__backInUp icon" onmousedown="mouseDown(this.id);" style="display: none">
