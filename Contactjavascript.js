@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+
+    
     $("#minimize").mouseenter(function() {
       $(this).children('img').attr("src", "images/gmail_icons/minimize_higlighted.png");
     }).mouseout(function() {
@@ -115,6 +118,13 @@ function send_message(){
     mailersend.send(emailParams);
 }
 
+function rightclick() {
+    var rightclick;
+    var e = window.event;
+    if (e.which) rightclick = (e.which == 3);
+    else if (e.button) rightclick = (e.button == 2);
+    alert(rightclick); // true or false, you can trap right click here by if comparison
+}
 
 function launchApp(evn){
     var temp = document.getElementById(evn);

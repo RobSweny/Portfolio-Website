@@ -17,6 +17,7 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
         <!-- Javascript -->
         <script src="Contactjavascript.js"></script>
 
@@ -25,6 +26,37 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+        <style type="text/css">
+            .context-menu {
+                position: absolute;
+                text-align: center;
+                background: lightgray;
+                border: 1px solid black;
+            }
+      
+            .context-menu ul {
+                padding: 0px;
+                margin: 0px;
+                min-width: 150px;
+                list-style: none;
+            }
+      
+            .context-menu ul li {
+                padding-bottom: 7px;
+                padding-top: 7px;
+                border: 1px solid black;
+            }
+      
+            .context-menu ul li a {
+                text-decoration: none;
+                color: black;
+            }
+      
+            .context-menu ul li:hover {
+                background: darkgray;
+            }
+        </style>
     </head>
     <body>
 
@@ -99,8 +131,10 @@
             <div id="settings_div" class="settings_div nav_icon" onmouseleave="navIconHighLight(this.id);" onmouseenter="navIconHighLight(this.id);" onclick="launchApp(this.id);">Settings</div>
         </div>
 
+       
+
         <div id="player" class="animate__animated animate__backInUp icon" onmousedown="mouseDown(this.id);" style="display: none">
-            <div class="player_top_bar" id="player_top_bar">
+            <div class="player_top_bar" id="player_top_bar" >
                 <p class="new_message_text">Music Player</p>
                 <div class="action_bar">
                     <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
@@ -114,15 +148,84 @@
                 </div>        
             </div> 
         </div>
-    
+
+        <div id="context_menu" class="context_menu">
+            <div>menu 1</div>
+            <div>menu 2</div>
+            <div>menu 3</div>
+            <div>menu 4</div>
+        </div>
+            
+
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
+
+            var menu= document.getElementById("context_menu");
+            document.addEventListener("contextmenu", function(e) {      
+                e.preventDefault();  
+                menu.style.position = 'fixed';
+                menu.style.left = e.pageX + 'px';
+                menu.style.top = e.pageY + 'px';        
+                menu.style.opacity = 1;
+            });
+            document.addEventListener("click", function(e){
+            if(e.target.closest('.context_menu'))
+            return;
+                menu.style.opacity = 0;
+            });
+
             $( function() {
               $("#contact").draggable({containment: "window", cursor: "move", scroll: false});
               $("#player").draggable({containment: "window", cursor: "move", scroll: false});
               $("#profile").draggable({containment: "window", cursor: "move", scroll: false});
+
+
+   
+            //   var p = document.getElementById('player');
+
+            //   p.className = p.className + ' resizable';
+            //   var resizer = document.createElement('div');
+            //   resizer.className = 'resizer';
+            //   p.appendChild(resizer);
+            //   resizer.addEventListener('mousedown', initDrag, false);
+
+            //   var startX, startY, startWidth, startHeight;
+
+            //   function initDrag(e) {
+            //       p.style.position = "fixed";
+            //       startX = e.clientX;
+            //       startY = e.clientY;
+            //       startWidth = parseInt(document.defaultView.getComputedStyle(p).width, 10);
+            //       startHeight = parseInt(document.defaultView.getComputedStyle(p).height, 10);
+            //       document.documentElement.addEventListener('mousemove', doDrag, false);
+            //       document.documentElement.addEventListener('mouseup', stopDrag, false);
+            //   }
+              
+            //   function doDrag(e) {
+            //       p.style.width = (startWidth + e.clientX - startX) + 'px';
+            //       p.style.height = (startHeight + e.clientY - startY) + 'px';
+            //   }
+              
+            //   function stopDrag(e) {
+            //       document.documentElement.removeEventListener('mousemove', doDrag, false);
+            //       document.documentElement.removeEventListener('mouseup', stopDrag, false);
+            //     }
+
+            
+                    // window.oncontextmenu = function () {
+                    //     event.preventDefault();
+
+                    //     if (document.getElementById("contextMenu").style.display == "block")
+                    //         hideMenu();
+                    //     else{
+                    //         rightClick();
+                    //         alert('working');
+                    //     }
+                    // }
+
+
             });
         </script>
     </body>
