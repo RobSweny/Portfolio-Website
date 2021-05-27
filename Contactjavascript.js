@@ -117,11 +117,18 @@ function send_message(){
 
 
 function launchApp(evn){
+    var temp = document.getElementById(evn);
+    /*
+        Call mousedown to intialize the correct z-indexing of apps/folders
+    */
+   mouseDown(temp.id.slice(0, -4));
+    
+
+
     /*
         All apps in nav bar have classname x_div
         when we call with this.id we can slice the '_div' off to get the id of the app
     */
-    var temp = document.getElementById(evn);
     var compose = document.getElementById(temp.id.slice(0, -4));
     if (compose.style.display == "none"){
         compose.classList.replace('animate__fadeOutDownBig', 'animate__backInUp');
