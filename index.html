@@ -61,7 +61,7 @@
     <body>
 
         <div id="profile" class="animate__animated animate__backInUp icon" onmousedown="mouseDown(this.id);" style="display: none">
-            <div class="profile_top_bar" id="profile_top_bar">
+            <div class="profile_top_bar nav" id="profile_top_bar">
                 <p class="new_message_text">Profile</p>
                 <div class="action_bar">
                     <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
@@ -74,6 +74,46 @@
             </div>
         </div>
         
+        <div id="settings" class="animate__animated animate__backInUp icon" onmousedown="mouseDown(this.id);" style="display: none">
+            <div class="profile_top_bar nav" id="profile_top_bar">
+                <p class="new_message_text">Profile</p>
+                <div class="action_bar">
+                    <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
+                    <button id="exit_full" class="exit_full"><img class="exit_img" src="images/gmail_icons/exit_full_screen.png"/></button>
+                    <button id="close" class="close" onclick="launchProfile();"><img class="close_img" src="images/gmail_icons/close.png"/></button>
+                </div>
+            </div>
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'Wallpaper')">Wallpaper</button>
+                <!-- <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button> -->
+                <!-- <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button> -->
+            </div>
+            
+            <div id="Wallpaper" class="tabcontent">
+                <div class="gallery-container">
+                    <img class="gallery-item gallery-item-1" src="images/wallpapers/lighthouse.jpg" data-index="1">
+                    <img class="gallery-item gallery-item-2" src="images/wallpapers/flat.png" data-index="2">
+                    <img class="gallery-item gallery-item-3" src="images/wallpapers/flat.png" data-index="3">
+                    <img class="gallery-item gallery-item-4" src="http://fakeimg.pl/300/?text=4" data-index="4">
+                    <img class="gallery-item gallery-item-5" onclick="scrollTo(this.id);" src="http://fakeimg.pl/300/?text=5" data-index="5">
+                    <img class="gallery-item gallery-item-6" src="http://fakeimg.pl/300/?text=4" data-index="6">
+                    <img class="gallery-item gallery-item-7" src="http://fakeimg.pl/300/?text=4" data-index="7">
+                </div>
+                <img class="wallpaper">
+                <div class="gallery-controls"></div>
+            </div>
+            
+            <!-- <div id="Paris" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p>
+            </div>
+            
+            <div id="Tokyo" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div> -->
+        </div>
+
         <div class="topnav"> 
             <a>Rob Sweny Portfolio</a>
             <div id="volume_div" class="volume_div">
@@ -95,7 +135,7 @@
         </div>
         
         <div id="contact" class="animate__animated animate__backInUp icon"  onmousedown="mouseDown(this.id);" style="display: none">
-            <div class="google_email_top_bar" id="google_email_top_bar" ondblclick="composeMessage();" >
+            <div class="google_email_top_bar nav" id="google_email_top_bar" ondblclick="composeMessage();" >
                 <p class="new_message_text">New Message</p>
                 <div class="action_bar">
                     <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
@@ -134,7 +174,7 @@
        
 
         <div id="player" class="animate__animated animate__backInUp icon" onmousedown="mouseDown(this.id);" style="display: none">
-            <div class="player_top_bar" id="player_top_bar" >
+            <div class="player_top_bar nav" id="player_top_bar" >
                 <p class="new_message_text">Music Player</p>
                 <div class="action_bar">
                     <button id="minimize" class="minimize"><img id="minimize_img" class="minimize_img" src="images/gmail_icons/minimize.png"/></button>
@@ -162,6 +202,10 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
 
+            $('#buttonid').click(function(){
+            $('.outer_container').scrollLeft(5);
+            })
+
             var menu= document.getElementById("context_menu");
             document.addEventListener("contextmenu", function(e) {      
                 e.preventDefault();  
@@ -180,6 +224,7 @@
               $("#contact").draggable({containment: "window", cursor: "move", scroll: false});
               $("#player").draggable({containment: "window", cursor: "move", scroll: false});
               $("#profile").draggable({containment: "window", cursor: "move", scroll: false});
+              $("#settings").draggable({containment: "window", cursor: "move", scroll: false});
 
 
    
