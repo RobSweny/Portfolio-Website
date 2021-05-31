@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mailersend": "^1.0.2",
+    "node-mandrill": "^1.0.1"
+  }
+}

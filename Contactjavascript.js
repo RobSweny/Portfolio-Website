@@ -200,7 +200,8 @@ function openCity(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 
-function scrollTo(evn) {
-    var temp = document.getElementById(evn.id);
-    temp.scrollIntoView();
+function wallpaperChange(evn){
+    var temp = document.getElementById(evn).getAttribute("src");
+    var wallpaper = document.getElementById('wallpaper');
+    wallpaper.src = temp;
 }

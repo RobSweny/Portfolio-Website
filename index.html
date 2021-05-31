@@ -91,15 +91,13 @@
             
             <div id="Wallpaper" class="tabcontent">
                 <div class="gallery-container">
-                    <img class="gallery-item gallery-item-1" src="images/wallpapers/lighthouse.jpg" data-index="1">
-                    <img class="gallery-item gallery-item-2" src="images/wallpapers/flat.png" data-index="2">
-                    <img class="gallery-item gallery-item-3" src="images/wallpapers/flat.png" data-index="3">
-                    <img class="gallery-item gallery-item-4" src="http://fakeimg.pl/300/?text=4" data-index="4">
-                    <img class="gallery-item gallery-item-5" onclick="scrollTo(this.id);" src="http://fakeimg.pl/300/?text=5" data-index="5">
-                    <img class="gallery-item gallery-item-6" src="http://fakeimg.pl/300/?text=4" data-index="6">
-                    <img class="gallery-item gallery-item-7" src="http://fakeimg.pl/300/?text=4" data-index="7">
+                    <img id="gallery-item-1" class="gallery-item gallery-item-1" loading="lazy" onclick="wallpaperChange(this.id);" src="images/wallpapers/pink.jpg" data-index="1">
+                    <img id="gallery-item-2" class="gallery-item gallery-item-2" loading="lazy" onclick="wallpaperChange(this.id);" src="images/wallpapers/flat.jpg" data-index="2">
+                    <img id="gallery-item-3" class="gallery-item gallery-item-3" loading="lazy" onclick="wallpaperChange(this.id);" src="images/wallpapers/clean_fun.jpg" data-index="3">
+                    <img id="gallery-item-4" class="gallery-item gallery-item-4" loading="lazy" onclick="wallpaperChange(this.id);" src="images/wallpapers/clean_nature.jpg" data-index="4">
+                    <img id="gallery-item-5" class="gallery-item gallery-item-5" loading="lazy" onclick="wallpaperChange(this.id);" src="images/wallpapers/abstract_drawing.jpg" data-index="5">
                 </div>
-                <img class="wallpaper">
+                <img id="wallpaper" class="wallpaper" src="images/wallpapers/flat.jpg">
                 <div class="gallery-controls"></div>
             </div>
             
